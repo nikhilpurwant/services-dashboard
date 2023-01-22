@@ -1,0 +1,11 @@
+runtime: python39
+service: dashboard-service-api
+instance_class: F1 # instance_class and max_instances can be adjusted based on usage
+automatic_scaling:
+  max_instances: 1
+env_variables:
+  RUNNING_IN_APP_ENGINE: "Y"
+  API_RUN: "Y"
+  LOG_LEVEL: "debug" # debug for initial deployment but then switch to warning
+  PYTZ_TIME_ZONE: "Asia/Kolkata" # pick from all_pytz_timezones.txt based on your tz
+

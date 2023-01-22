@@ -1,0 +1,7 @@
+flask==2.2.2
+Flask-Cors==3.0.10
+google-cloud-firestore==2.7.3
+google-cloud-kms==2.13.0
+sendgrid==6.9.7
+pytz==2022.7
+schedule==1.1.0

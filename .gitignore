@@ -1,0 +1,3 @@
+venv_development/
+__pycache__/
+files/*.pdf
