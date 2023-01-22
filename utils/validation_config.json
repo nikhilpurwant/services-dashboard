@@ -1,0 +1,155 @@
+{
+    "/api/services": {
+        "field_configurations": {
+            "service_name": [
+                "Service Name",
+                "string",
+                5,
+                100
+            ],
+            "description": [
+                "description",
+                "string",
+                5,
+                200
+            ],
+            "notification_recipients": [
+                "Notification Recipients",
+                "emails",
+                5,
+                750
+            ],
+            "status": [
+                "Status",
+                "enum",
+                [
+                    "active",
+                    "degraded",
+                    "outage"
+                ]
+            ],
+            "message": [
+                "Message",
+                "string",
+                10,
+                300
+            ]
+        },
+        "GET": {
+            "body": {},
+            "args": {},
+            "role": ["admin","non_admin"]
+        },
+        "POST": {
+            "body": {
+                "mandatory": [
+                    "service_name",
+                    "description",
+                    "notification_recipients"
+                ],
+                "skip": ["status","message"]
+            },
+            "args": {},
+            "role": ["admin"]
+        },
+        "PUT": {
+            "body": {
+                "mandatory": [
+                    "service_name",
+                    "description",
+                    "notification_recipients",
+                    "message"
+                ]
+            },
+            "args": {},
+            "role": ["admin"]
+        },
+        "DELETE": {
+            "body": {
+                "mandatory": [
+                    "service_name"
+                ]
+            },
+            "args": {},
+            "role": ["admin"]
+        }
+    },
+    "/api/settings": {
+        "field_configurations": {
+            "alert_from_email": [
+                "Alert From Email",
+                "email",
+                5,
+                120
+            ],
+            "admin_emails": [
+                "Admins",
+                "emails",
+                5,
+                200
+            ],
+            "application_url": [
+                "Application URL",
+                "url",
+                10,
+                100
+            ],
+            "application_name": [
+                "Application Name",
+                "url",
+                5,
+                100
+            ],
+            "data_retention_days": [
+                "Data Retention Days",
+                "enum",
+                [
+                    "7",
+                    "15",
+                    "30"
+                ]
+            ],
+            "sendgrid_api_key": [
+                "Sendgrid API Key",
+                "string",
+                60,
+                100
+            ],
+            "inbound_api_key": [
+                "Inbound API Key",
+                "string",
+                35,
+                100
+            ]
+        },
+        "GET": {
+            "body": {},
+            "args": {},
+            "role": ["admin"]
+        },
+        "POST": {
+            "body": {
+                "mandatory": [
+                    "data_retention_days",
+                    "application_name"
+                ],
+                "skip": []
+            },
+            "args": {},
+            "role": ["admin"]
+        },
+        "PUT": {
+            "body": {
+                "mandatory": [
+                    "data_retention_days",
+                    "application_name"
+                ]
+            },
+            "args": {},
+            "role": ["admin"]
+        }
+    },
+    "common_settings": {
+        "consider_blank_as_none": true
+    }
+}
